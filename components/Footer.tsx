@@ -62,7 +62,7 @@ export default function Footer() {
             {
               heading: "ជំនួយ",
               items: [
-                { label: "Telegram: @rithtopup", href: "#" },
+                { label: "Telegram: @thephal", href: "#" },
                 { label: "24/7 Service", href: "#" },
               ],
             },

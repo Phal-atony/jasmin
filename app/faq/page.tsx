@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "FAQ — RITHTOPUP",
+  title: "FAQ — JASMINTOPUP",
   description: "Frequently asked questions about game top-ups, KHQR payment, delivery times and more.",
 };
 
@@ -27,12 +27,12 @@ export default async function FaqPage() {
       <Header />
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
         <div className="text-center mb-10">
-          <h1 className="font-display text-3xl sm:text-5xl font-bold mb-3">Help Center</h1>
+          <h1 className="font-display text-3xl sm:text-5xl font-bold mb-3">ជំនួយការ</h1>
           <p className="text-pink-500 font-semibold">ចម្លើយសម្រាប់សំណួរទូទៅ។ នៅតែមានបញ្ហា? <Link href="/order" className="text-pink-600 font-bold hover:underline">តាមដានការបញ្ជាទិញ</Link> ឬទំនាក់ទំនង Telegram។</p>
         </div>
 
         {faqs.length === 0 ? (
-          <div className="card p-10 text-center text-pink-400 text-sm font-semibold">No questions published yet.</div>
+          <div className="card p-10 text-center text-pink-400 text-sm font-semibold">គ្មានសំណួរនៅឡើយ!</div>
         ) : (
           Object.entries(grouped).map(([cat, list]) => (
             <section key={cat} className="mb-10">

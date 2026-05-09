@@ -4,7 +4,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { isValidUid, isValidServerId, formatUsd } from "@/lib/utils";
 import { useCurrency } from "@/lib/currency";
 import { QrCode, ArrowRight, Lock, Check, Smartphone, Search, UserRoundCheck, AlertCircle, Tag, Loader2 } from "lucide-react";
-import Image from "next/image";
 
 // Games that support automatic nickname lookup via /api/lookup-uid
 const LOOKUP_SLUGS = new Set(["mobile-legends", "free-fire", "genshin-impact", "honkai-star-rail"]);
@@ -220,7 +219,7 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
             <span className="absolute inset-0 rounded-full bg-pink-500/40 animate-ping" />
             <span className="relative">1</span>
           </div>
-          <h2 className="font-display text-xl font-extrabold text-pink-800">Choose Package</h2>
+          <h2 className="font-display text-xl font-extrabold text-pink-800">ជ្រើសរើសកញ្ចប់</h2>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
@@ -263,22 +262,23 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
                 {p.amount > 0 ? (
                   <>
                   {p.imageUrl && (
-                    <div className="mb-2 w-full flex justify-center">
-                      <Image
-                        src={p.imageUrl ?? ""}
-                        alt={p.name}
-                        width={56}
-                        height={56}
-                        className="h-14 w-14 object-contain rounded-lg"
-                      />
-                  </div>
-                )}
+                      <div className="mb-2 w-full flex justify-center">
+                        <image
+                          src={p.imageUrl ?? ""}
+                          alt={p.name}
+                          className="h-14 w-14 object-contain rounded-lg"
+                        />
+                      </div>
+                    )}
+                    <div className="font-semibold text-sm leading-tight">{p.name}</div>
+                  </>
+               ) : (
                     <div className={`font-display font-bold text-2xl sm:text-3xl leading-none transition-colors ${
                       isSelected ? "text-pink-600" : "text-pink-800"
                     }`}>
                       {p.amount.toLocaleString()}
                     </div>
-                    {p.bonus > 0 && (
+                      {p.bonus > 0 && (
                       <div className="text-xs text-pink-400 mt-1 font-semibold">
                         + {p.bonus} bonus
                       </div>
@@ -286,14 +286,17 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
                     <div className="text-[10px] text-pink-500 uppercase tracking-wider mt-1">
                       {game.currencyName}
                     </div>
+                   
                   </>
                 ) : (
                   <>
                     {p.imageUrl && (
-                      <div className="mb-2 w-full flex justify-center">
-                        <Image
+                      <div className="mb-2 flex justify-center">
+                        <img
                           src={p.imageUrl ?? ""}
                           alt={p.name}
+                          width={56}
+                          height={56}
                           className="h-14 w-14 object-contain rounded-lg"
                         />
                       </div>
@@ -341,12 +344,12 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
               />
               {!uid && game.uidExample && !useZoneField && (
                 <p className="text-xs text-pink-500 mt-1.5">
-                  Example: <span className="font-mono text-pink-800/70">{game.uidExample}</span>
+                  ឧទាហរណ៍: <span className="font-mono text-pink-800/70">{game.uidExample}</span>
                 </p>
               )}
               {uid && !isValidUid(uid) && (
                 <p className="text-xs text-red-500 mt-1">
-                  UID should be 6–20 digits.
+                  IDគួរតែ6-20ខ្ទង់
                 </p>
               )}
             </div>
@@ -388,7 +391,7 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
               {nicknameStatus === "checking" && (
                 <span className="inline-flex items-center gap-2 text-sm text-pink-500 animate-pulse">
                   <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} />
-                  Verifying account…
+                  កំពុងទៀងផ្ទាត់គណនី…
                 </span>
               )}
 
@@ -403,7 +406,7 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
               {nicknameStatus === "not_found" && (
                 <span className="inline-flex items-center gap-2 rounded-lg border border-yellow-600 bg-yellow-100 px-3 py-1.5 text-sm text-yellow-600">
                   <AlertCircle className="h-4 w-4" strokeWidth={2} />
-                  Couldn&apos;t verify — double-check your UID
+                  Couldn&apos;t គណនីរកមិនឃើញ
                 </span>
               )}
             </div>
@@ -436,7 +439,7 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
               onClick={removePromo}
               className="text-xs text-pink-500 hover:text-red-500 transition-colors"
             >
-              Remove
+              លុប
             </button>
           </div>
         ) : (
@@ -454,7 +457,7 @@ export default function TopUpForm({ game, products }: { game: Game; products: Pr
               disabled={promoLoading || !promoInput.trim() || !selectedProduct}
               className="btn-ghost text-sm shrink-0"
             >
-              {promoLoading ? "..." : "Apply"}
+              {promoLoading ? "..." : "អនុវត្ត"}
             </button>
           </div>
         )}

@@ -2,9 +2,9 @@
 export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
-import { image } from "pdfkit";
+//import { image } from "pdfkit";//
 import { z } from "zod";
-import { nullable } from "zod/v4";
+import { nullable } from "zod/v3";
 
 const productSchema = z.object({
   gameId: z.string().min(1),
@@ -13,7 +13,7 @@ const productSchema = z.object({
   bonus: z.number().int().min(0).default(0),
   priceUsd: z.number().positive(),
   badge: z.string().optional().nullable(),
-  image: z.string().optional().nullable(),
+  imageUrl: z.string().optional().nullable(),
   active: z.boolean().default(true),
   sortOrder: z.number().int().default(0),
 });

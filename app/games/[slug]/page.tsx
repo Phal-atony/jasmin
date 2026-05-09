@@ -68,7 +68,7 @@ export default async function GamePage({ params }: { params: { slug: string } })
                 </p>
                 <span className="inline-flex items-center gap-1 rounded-full border border-green-400/30 bg-green-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-green-300">
                   <Zap className="h-2.5 w-2.5" strokeWidth={3} />
-                  Instant delivery
+                  រហ័សទាន់ចិត្ត
                 </span>
               </div>
             </div>

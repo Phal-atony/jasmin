@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from "next/server";
-import { image } from "pdfkit";
+//import { image } from "pdfkit";//
 import { z } from "zod";
 
 const updateSchema = z.object({
@@ -11,7 +11,7 @@ const updateSchema = z.object({
   bonus: z.number().int().min(0).optional(),
   priceUsd: z.number().positive().optional(),
   badge: z.string().nullable().optional(),
-  image: z.string().nullable().optional(),
+  imageUrl: z.string().nullable().optional(),
   active: z.boolean().optional(),
   sortOrder: z.number().int().optional(),
 });

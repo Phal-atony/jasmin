@@ -35,5 +35,12 @@ yarn-error.log*
 /prisma/*.db-journal
 
 # User-uploaded images (admin panel)
+# Keep folder structure but ignore actual uploaded images in git
 /public/uploads/*
+/public/uploads/*.png
+/public/uploads/*.jpg
+/public/uploads/*.jpeg
+/public/uploads/*.webp
+/public/uploads/*.gif
+/public/uploads/*.svg
 !/public/uploads/.gitkeep
